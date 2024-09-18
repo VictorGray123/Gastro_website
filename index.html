@@ -247,24 +247,9 @@
     }
 
     .gallery-images img {
-        width: 100%;
+        width: 100%; /* Each image takes up full width */
+        min-width: 100%; /* Ensures only one image is displayed at a time */
         border-radius: 10px;
-    }
-
-    /* Animation for image transition */
-    @keyframes slide {
-        0% {
-            transform: translateX(0);
-        }
-        33% {
-            transform: translateX(-100%);
-        }
-        66% {
-            transform: translateX(-200%);
-        }
-        100% {
-            transform: translateX(0);
-        }
     }
 </style>
 
@@ -273,8 +258,7 @@
         'paella': [
             'paella1.jpg',
             'paella2.jpg',
-            'paella3.jpg',
-            'paella4.jpg'
+            'paella3.jpg'
         ],
         'tortilla_espanola': [
             'tortilla1.jpg',
@@ -369,7 +353,6 @@
         updateGallery();
     };
 </script>
-
     
     <!-- Footer -->
     <footer>
