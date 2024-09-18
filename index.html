@@ -214,5 +214,180 @@
         }
     </script>
 
+<!-- Gallery Section -->
+<div class="gallery-section">
+    <h2>Select a Dish to View Gallery</h2>
+    <select id="dish-selector" onchange="updateGallery()">
+        <option value="paella">Paella</option>
+        <option value="tortilla_espanola">Tortilla Española</option>
+        <option value="gazpacho">Gazpacho</option>
+        <option value="croquetas">Croquetas</option>
+        <option value="jamon">Jamón Ibérico</option>
+        <option value="patatas_bravas">Patatas Bravas</option>
+        <option value="churros">Churros</option>
+        <option value="fabada">Fabada Asturiana</option>
+        <option value="pimientos_padron">Pimientos de Padrón</option>
+        <option value="pulpo">Pulpo a la Gallega</option>
+    </select>
+
+    <!-- Gallery Container -->
+    <div class="gallery-container">
+        <div class="gallery-images" id="gallery-images">
+            <!-- Images will be dynamically injected here -->
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Gallery Section Styling */
+    .gallery-section {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    #dish-selector {
+        padding: 10px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .gallery-container {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-images {
+        display: flex;
+        transition: transform 1s ease-in-out;
+    }
+
+    .gallery-images img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* Animation for image transition */
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        33% {
+            transform: translateX(-100%);
+        }
+        66% {
+            transform: translateX(-200%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+</style>
+
+<script>
+    const dishImages = {
+        'paella': [
+            'paella1.jpg',
+            'paella2.jpg',
+            'paella3.jpg'
+        ],
+        'tortilla_espanola': [
+            'tortilla1.jpg',
+            'tortilla2.jpg',
+            'tortilla3.jpg'
+        ],
+        'gazpacho': [
+            'gazpacho1.jpg',
+            'gazpacho2.jpg',
+            'gazpacho3.jpg'
+        ],
+        'croquetas': [
+            'croquetas1.jpg',
+            'croquetas2.jpg',
+            'croquetas3.jpg'
+        ],
+        'jamon': [
+            'jamon1.jpg',
+            'jamon2.jpg',
+            'jamon3.jpg'
+        ],
+        'patatas_bravas': [
+            'patatas1.jpg',
+            'patatas2.jpg',
+            'patatas3.jpg'
+        ],
+        'churros': [
+            'churros1.jpg',
+            'churros2.jpg',
+            'churros3.jpg'
+        ],
+        'fabada': [
+            'fabada1.jpg',
+            'fabada2.jpg',
+            'fabada3.jpg'
+        ],
+        'pimientos_padron': [
+            'pimientos1.jpg',
+            'pimientos2.jpg',
+            'pimientos3.jpg'
+        ],
+        'pulpo': [
+            'pulpo1.jpg',
+            'pulpo2.jpg',
+            'pulpo3.jpg'
+        ]
+    };
+
+    let currentDish = 'paella';
+    let currentIndex = 0;
+    let slideInterval;
+
+    function updateGallery() {
+        const selectedDish = document.getElementById('dish-selector').value;
+        currentDish = selectedDish;
+        currentIndex = 0;
+        displayImages();
+    }
+
+    function displayImages() {
+        const galleryImages = document.getElementById('gallery-images');
+        galleryImages.innerHTML = ''; // Clear previous images
+
+        const images = dishImages[currentDish];
+
+        // Inject images into the gallery
+        images.forEach(image => {
+            const img = document.createElement('img');
+            img.src = image;
+            img.alt = currentDish;
+            galleryImages.appendChild(img);
+        });
+
+        // Reset the sliding effect
+        galleryImages.style.transform = 'translateX(0)';
+        clearInterval(slideInterval);
+        startSlideshow();
+    }
+
+    function startSlideshow() {
+        const galleryImages = document.getElementById('gallery-images');
+        const totalImages = dishImages[currentDish].length;
+
+        slideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalImages;
+            galleryImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }, 3000);
+    }
+
+    // Initialize gallery with the first dish on page load
+    window.onload = () => {
+        updateGallery();
+    };
+</script>
+
+    
 </body>
 </html>
