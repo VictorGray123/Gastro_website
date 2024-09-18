@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Traditional Spanish Dishes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #b22222;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .dish {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            max-width: 300px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .dish:hover {
+            transform: translateY(-10px);
+        }
+
+        .dish img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .dish h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .description {
+            display: none;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: #b22222;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #8b1a1a;
+        }
+
+        footer {
+            background-color: #b22222;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .dish {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Traditional Spanish Dishes</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="menu">
+            <!-- Dish 1 -->
+            <div class="dish">
+                <img src="paella.jpg" alt="Paella">
+                <h2>Paella</h2>
+                <p class="description">A flavorful rice dish cooked with seafood, saffron, and vegetables, originating from Valencia.</p>
+                <button class="btn" onclick="toggleDescription(this)">Read More</button>
+            </div>
+
+            <!-- Dish 2 -->
+            <div class="dish">
+                <img src="tortilla_espanola.jpg" alt="Tortilla Española">
+                <h2>Tortilla Española</h2>
+                <p class="description">A classic Spanish omelette made with eggs, potatoes, and onions. A hearty and popular dish.</p>
+                <button class="btn" onclick="toggleDescription(this)">Read More</button>
+            </div>
+
+            <!-- Dish 3 -->
+            <div class="dish">
+                <img src="gazpacho.jpg" alt="Gazpacho">
+                <h2>Gazpacho</h2>
+                <p class="description">A chilled tomato-based soup filled with fresh vegetables, perfect for hot summer days.</p>
+                <button class="btn" onclick="toggleDescription(this)">Read More</button>
+            </div>
+
+            <!-- Dish 4 -->
+            <div class="dish">
+                <img src="croquetas.jpg" alt="Croquetas">
+                <h2>Croquetas</h2>
+                <p class="description">Fried breaded rolls filled with creamy béchamel sauce mixed with ham or chicken.</p>
+                <button class="btn" onclick="toggleDescription(this)">Read More</button>
+            </div>
+
+            <!-- Dish 5 -->
+            <div class="dish">
+                <img src="jamon.jpg" alt="Jamon Iberico">
+                <h2>Jamón Ibérico</h2>
+                <p class="description">The finest cured ham in Spain, made from free-range Iberian pigs.</p>
+                <button class="btn" onclick="toggleDescription(this)">Read More</button>
+            </div>
+
+            <!-- Dish 6 -->
+            <div class="dish">
+                <img src="patatas_bravas.jpg" alt="Patatas Bravas">
+                <h2>Patatas Bravas</h2>
+                <p class="description">Crispy fried potatoes served with a spicy tomato sauce and aioli.</p>
+                <button class="btn" onclick="toggleDescription(this)">Read More</button>
+            </div>
+
+            <!-- Dish 7 -->
+            <div class="dish">
+                <img src="churros.jpg" alt="Churros">
+                <h2>Churros</h2>
+                <p class="description">Fried dough pastry, often served with hot chocolate for dipping. A popular breakfast treat.</p>
+                <button class="btn" onclick="toggleDescription(this)">Read More</button>
+            </div>
+
+            <!-- Dish 8 -->
+            <div class="dish">
+                <img src="fabada.jpg" alt="Fabada Asturiana">
+                <h2>Fabada Asturiana</h2>
+                <p class="description">A rich bean stew with chorizo, morcilla (blood sausage), and pork shoulder.</p>
+                <button class="btn" onclick="toggleDescription(this)">Read More</button>
+            </div>
+
+            <!-- Dish 9 -->
+            <div class="dish">
+                <img src="pimientos_padron.jpg" alt="Pimientos de Padrón">
+                <h2>Pimientos de Padrón</h2>
+                <p class="description">Small green peppers, typically fried and sprinkled with sea salt. Some are spicy, others mild.</p>
+                <button class="btn" onclick="toggleDescription(this)">Read More</button>
+            </div>
+
+            <!-- Dish 10 -->
+            <div class="dish">
+                <img src="pulpo.jpg" alt="Pulpo a la Gallega">
+                <h2>Pulpo a la Gallega</h2>
+                <p class="description">Tender octopus, served with paprika, olive oil, and sea salt, hailing from Galicia.</p>
+                <button class="btn" onclick="toggleDescription(this)">Read More</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Traditional Spanish Dishes. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        function toggleDescription(button) {
+            const description = button.previousElementSibling;
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block';
+                button.textContent = 'Show Less';
+            } else {
+                description.style.display = 'none';
+                button.textContent = 'Read More';
+            }
+        }
+    </script>
+
+</body>
+</html>
